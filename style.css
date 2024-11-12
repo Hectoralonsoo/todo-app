@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+   --dark-green: #309700;
+   --black:#1b1525;
+   --blue-light:#04d4c3;
+   --blue-dark:#1a5200;
+   --green: #000000;
+   --white: #ffffff;
+
+}
+
+body {
+    background: linear-gradient(to bottom,var(--dark-green),var(--black));
+    height: 100vh;   
+    font-family: 'Prompt', sans-serif;
+}
+
+.container {
+    max-width: 80%;
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/*PERFIL*/
+
+
+
+.profile h1 {
+    color: var(--white);
+}
+
+.profile span {
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+#date {
+    color: var(--white);
+    padding: 50px 0 5px 0px;
+
+}
+
+
+
+
+/*AGREGAR TAREA*/
+
+.add-task {
+    background-color: var(--white) ;
+    border-radius: 15px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 10px;
+    margin: 40px 0;
+}
+
+.add-task input {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--white);
+    padding-left: 10px;
+
+}
+.add-task input::placeholder {
+   font-size: 1.1rem;
+   color: var(--purple);
+}
+
+.add-task i{
+    font-size: 50px;
+    color: var(--purple);
+
+}
+.add-task i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+
+/*SECCION DE TAREA */
+
+.task-section h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.task-section li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom,var(--blue-dark),var(--green));
+    border-radius: 15px;
+    padding: 10px;
+    color: var(--white);
+    margin: 5px 0;
+
+}
+.task-section i {
+    font-size: 25px;
+}
+
+.task-section > ul p {
+    font-size: 1.2rem;
+
+}
+
+
+.task-section i:hover {
+    color: var(--blue-light);
+    cursor: pointer;
+}
+
+.line-through{
+    text-decoration: line-through;
+    color : var(--blue-light);
+} 
+
+
+/* Estilo general del contenedor para el selector de fechas */
+.select-date {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+}
+
+/* Etiqueta del selector de fecha */
+.select-date label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-right: 10px;
+}
+
+/* Estilo del campo de fecha */
+.select-date input[type="date"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo cuando el campo está enfocado */
+.select-date input[type="date"]:focus {
+    border-color: #5b9bd5;
+}
+
+/* Estilo de contenedor en un estado más pequeño en pantallas móviles */
+@media (max-width: 600px) {
+    .select-date {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .select-date label {
+        margin-bottom: 5px;
+    }
+
+    .select-date input[type="date"] {
+        width: 100%;
+    }
+}

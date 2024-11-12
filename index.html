@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do list</title>
+</head>
+<body>
+
+   
+
+    <div class="container">
+
+
+
+
+        <div class="profile">
+            <div id="date"></div>
+            <h1>Hi, Héctor</h1>
+            <span>Welcome to your goals</span>
+        </div>
+
+        <div class="select-date">
+            <label for="input-date">Select Date:</label>
+            <input type="date" id="input-date" onchange="fetchTasks()">
+            
+        </div>
+
+
+        <div class="add-task">
+            <input type="text" id="input" placeholder="Add new Task">
+            <i id="enter" class="fas fa-plus-circle"></i>
+        </div>
+
+
+        <div class="task-section">
+            <h3>These are your pending tasks</h3>
+            <ul id="list">
+                
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
