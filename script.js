@@ -71,36 +71,34 @@ document.addEventListener('keyup', function(event){
 
 list.addEventListener('click', function(event) {
         const element = event.target;
-        const elementData = element.attributes.data.value;  // Obtener el valor del atributo 'data'
-        const taskId = element.getAttribute('id');  // Obtener el ID de la tarea   
+        const elementData = element.attributes.data.value; 
+        const taskId = element.getAttribute('id');  
     
         var isCompleted = true;
       
     
-        // Verificar si el elemento clickeado es el ícono de "completar tarea"
         if (elementData =='done') {
             
-            // Obtener el estado actual de la tarea (completa o no)
+          
             if (element.classList.contains('fa-check-circle')) {
-                isCompleted = true;  // Si está marcada como completa, la cambiamos a no completada
+                isCompleted = true;  
             } else {
-                isCompleted = false;  // Si está no completada, la cambiamos a completada
+                isCompleted = false;  
             }
 
             doneTask(element);
            
-            // Llamar a la función que actualiza el estado de la tarea en la base de datos
             updateToggleTaskCompletion(taskId, isCompleted)
             .catch(error => {
-                // Después de que se haya actualizado el servidor, cambiar el ícono y el estilo en la UI
+               
                 console.error('Error al actualizar la tarea:', error);
                 doneTask(element);
             })
     
-            // Cambiar el icono de la tarea y el estilo de la línea (tachado)
+       
             
         } 
-        // Verificar si el elemento clickeado es el ícono de "eliminar tarea"
+     
         else if (elementData === 'deleted') {
             deletedTask(element);
             deleteTaskFromDatabase(taskId);
@@ -119,20 +117,19 @@ function fetchTasks() {
         method: 'GET',
         mode: 'cors'
     })
-      .then(response => response.json())  // Convertir la respuesta a JSON
+      .then(response => response.json()) 
       .then(tasks => {
-        console.log(tasks);  // Verificar en consola que estamos recibiendo las tareas
-  
-        // Seleccionamos el contenedor de tareas
+      
+   
         const taskList = document.getElementById('list');
         
-        // Limpiar cualquier tarea previamente renderizada
+     
         taskList.innerHTML = '';
   
-        // Recorrer todas las tareas y agregar elementos a la lista
+       
         tasks.forEach(task => {
-        const taskDone = task.completed ? 'fa-check-circle' : 'fa-circle';  // íconos según el estado de la tarea
-        const taskLine = task.completed ?  lineThrough : '';  // Agregar clase 'completed' si la tarea está completada
+        const taskDone = task.completed ? 'fa-check-circle' : 'fa-circle';  
+        const taskLine = task.completed ?  lineThrough : '';  
 
         const li = document.createElement('li');
         li.id = 'item';
@@ -143,7 +140,7 @@ function fetchTasks() {
         <i class="fas fa-trash de" data="deleted" id="${task.id}"></i>
       `;
 
-        // Agregar el item a la lista en el HTML
+       
         taskList.appendChild(li);
 
        
